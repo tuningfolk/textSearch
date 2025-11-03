@@ -1,0 +1,6 @@
+Line 1: initializing system
+Line 2: system running
+Line 3: error detected
+Line 4: retrying operation
+Line 5: critical error in module
+Line 6: system halted

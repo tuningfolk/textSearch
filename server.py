@@ -1,4 +1,3 @@
-import requests
 from mcp.server.fastmcp import FastMCP
 import os
 import sys
@@ -23,10 +22,10 @@ def search_keyword(file_path: str, keyword: str):
         with open(file_path, "r") as file:
             lines = file.readlines()
             for i,line in enumerate(lines):
-                words = "".join((char if char.isalpha() else " ") for char in line).split()
+                words = "".join((char if char.isalnum() else " ") for char in line).split()
                 for j,word in enumerate(words):
                     if word == keyword:
-                        matches.append({"line": i+1, "word": j+1})
+                        matches.append({"line_no": i+1, "word": j+1, "line": line[:-1]})
         return {"count": len(matches), "matches": matches}
     except FileNotFoundError:
         return {"error": "File not found"}
